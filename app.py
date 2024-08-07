@@ -1,13 +1,18 @@
 # Install necessary libraries
 # pip install openai pinecone-client
+import os
+from dotenv import load_dotenv, find_dotenv
 import streamlit as st
 import openai
 import pinecone
 import fitz  # PyMuPDF
 
-# Initialize OpenAI
-openai.api_key = 'sk-proj-ci0nnLajRdB2nRR2grvnT3BlbkFJCfcE3rbrm5TY7itajPYS'
+load_dotenv()
 
+#print(os.getenv('OPENAI_API_KEY'))
+# Initialize OpenAI
+openai.api_key = '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'
+#openai.api_key = os.getenv('OPENAI_API_KEY')
 # Initialize Pinecone
 pinecone.init(api_key='1e1a7725-b030-4b30-aa95-dadd43cf2548')
 
@@ -26,7 +31,7 @@ def extract_text_from_pdf(pdf_file):
 
 def extract_info_from_cv(cv_text):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are an assistant that extracts key information from CVs."},
             {"role": "user", "content": f"Extract key information from the following CV:\n\n{cv_text}"}
@@ -37,7 +42,7 @@ def extract_info_from_cv(cv_text):
 
 def predict_personality(extracted_info):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are an assistant that predicts personality traits based on CV information."},
             {"role": "user", "content": f"Based on the following information, predict the personality traits:\n\n{extracted_info}"}
