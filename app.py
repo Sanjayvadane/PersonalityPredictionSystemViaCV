@@ -11,7 +11,8 @@ load_dotenv()
 
 #print(os.getenv('OPENAI_API_KEY'))
 # Initialize OpenAI
-openai.api_key = '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'
+openai.api_key = '' 
+# removed OpenAi Api key for security reason 
 #openai.api_key = os.getenv('OPENAI_API_KEY')
 # Initialize Pinecone
 pinecone.init(api_key='1e1a7725-b030-4b30-aa95-dadd43cf2548')
