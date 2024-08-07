@@ -1,0 +1,21 @@
+# Document Processing Libraries
+PyPDF2
+python-docx
+
+# OpenAI API
+openai
+
+# Pinecone
+pinecone-client
+
+# Hugging Face Transformers
+transformers
+
+# Backend Development (Flask)
+Flask
+
+# Database (PostgreSQL)
+psycopg2-binary
+
+# Testing Framework (PyTest)
+pytest
